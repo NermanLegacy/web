@@ -24,7 +24,7 @@ It is always called first in filterscripts.
 
 ## Examples
 
-```c
+```pawn
 new PlayerDeaths[MAX_PLAYERS];
 new PlayerKills[MAX_PLAYERS];
 
