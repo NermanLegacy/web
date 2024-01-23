@@ -18,7 +18,7 @@ It is always called first in filterscripts.
 
 ## Examples
 
-```c
+```pawn
 public OnPlayerLeaveRaceCheckpoint(playerid)
 {
     printf("Player %d left a race checkpoint!", playerid);
