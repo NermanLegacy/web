@@ -26,7 +26,7 @@ It is always called first in filterscripts.
 
 ## Examples
 
-```c
+```pawn
 public OnIncomingConnection(playerid, ip_address[], port)
 {
     printf("Incoming connection for player ID %i [IP/port: %s:%i]", playerid, ip_address, port);
