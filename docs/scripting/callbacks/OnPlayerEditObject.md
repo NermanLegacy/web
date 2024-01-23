@@ -1,7 +1,7 @@
 ---
 title: OnPlayerEditObject
 description: This callback is called when a player finishes editing an object (BeginObjectEditing/BeginPlayerObjectEditing).
-tags: ["player"]
+tags: ["player", "object"]
 ---
 
 <VersionWarn name='callback' version='SA-MP 0.3e' />
@@ -33,7 +33,7 @@ It is always called first in filterscripts.
 
 ## Examples
 
-```c
+```pawn
 public OnPlayerEditObject(playerid, playerobject, objectid, EDIT_RESPONSE:response, Float:fX, Float:fY, Float:fZ, Float:rotationX, Float:rotationY, Float:rotationZ)
 {
     new
