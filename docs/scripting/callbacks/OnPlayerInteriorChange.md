@@ -20,7 +20,7 @@ It is always called first in gamemode.
 
 ## Examples
 
-```c
+```pawn
 public OnPlayerInteriorChange(playerid, newinteriorid, oldinteriorid)
 {
     new string[42];
