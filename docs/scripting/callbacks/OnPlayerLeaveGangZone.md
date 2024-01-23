@@ -21,7 +21,7 @@ It is always called first in gamemode.
 
 ## Examples
 
-```c
+```pawn
 public OnPlayerLeaveGangZone(playerid, zoneid)
 {
     new string[128];
