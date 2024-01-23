@@ -19,7 +19,7 @@ It is always called first in filterscripts.
 
 ## Examples
 
-```c
+```pawn
 public OnPlayerExitVehicle(playerid, vehicleid)
 {
     new string[35];
