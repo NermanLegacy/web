@@ -21,7 +21,7 @@ This callback does not handle returns.
 
 ## Examples
 
-```c
+```pawn
 public OnPlayerFinishedDownloading(playerid, virtualworld)
 {
     SendClientMessage(playerid, 0xFFFFFFFF, "Downloads finished.");
