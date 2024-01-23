@@ -1,7 +1,7 @@
 ---
 title: OnPlayerEnterPlayerGangZone
 description: This callback is called when a player enters a player gangzone
-tags: ["player", "gangzone"]
+tags: ["player", "gangzone", "playergangzone"]
 ---
 
 <VersionWarn version='omp v1.1.0.2612' />
