@@ -1,7 +1,7 @@
 ---
 title: OnPlayerPickUpPickup
 description: This callback is called when a player picks up a pickup created with CreatePickup.
-tags: ["player"]
+tags: ["player", "pickup"]
 ---
 
 ## Description
@@ -19,7 +19,7 @@ It is always called first in gamemode.
 
 ## Examples
 
-```c
+```pawn
 new pickup_Cash;
 new pickup_Health;
 
