@@ -21,7 +21,7 @@ It is always called first in gamemode.
 
 ## Examples
 
-```c
+```pawn
 new g_PlayerPickupHealth[MAX_PLAYERS];
 
 public OnPlayerConnect(playerid)
