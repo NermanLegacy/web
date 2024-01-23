@@ -28,7 +28,7 @@ It is always called first in filterscripts so returning 1 there blocks other fil
 
 ## Examples
 
-```c
+```pawn
 public OnPlayerGiveDamage(playerid, damagedid, Float:amount, weaponid, bodypart)
 {
     new string[128], victim[MAX_PLAYER_NAME], attacker[MAX_PLAYER_NAME];
