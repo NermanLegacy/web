@@ -1,7 +1,7 @@
 ---
 title: OnPlayerEditAttachedObject
 description: This callback is called when a player ends attached object edition mode.
-tags: ["player"]
+tags: ["player", "object"]
 ---
 
 <VersionWarn name='callback' version='SA-MP 0.3e' />
@@ -37,7 +37,7 @@ It is always called first in filterscripts.
 
 ## Examples
 
-```c
+```pawn
 enum attached_object_data
 {
     Float:ao_x,
