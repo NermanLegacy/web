@@ -1,7 +1,7 @@
 ---
 title: OnPlayerObjectMoved
 description: This callback is called when a player object is moved after MovePlayerObject (when it stops moving).
-tags: ["player"]
+tags: ["player", "object"]
 ---
 
 ## Description
@@ -19,7 +19,7 @@ It is always called first in filterscripts.
 
 ## Examples
 
-```c
+```pawn
 public OnPlayerObjectMoved(playerid, objectid)
 {
     printf("Player object moved: objectid: %d playerid: %d", objectid, playerid);
