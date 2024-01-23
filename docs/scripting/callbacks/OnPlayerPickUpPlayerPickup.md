@@ -19,7 +19,7 @@ It is always called first in gamemode.
 
 ## Examples
 
-```c
+```pawn
 new player_pickup_Cash[MAX_PLAYERS];
 new player_pickup_Health[MAX_PLAYERS];
 
