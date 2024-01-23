@@ -41,7 +41,7 @@ Reasons 3 and 4 were added by the Open Multiplayer server.
 
 ## Examples
 
-```c
+```pawn
 public OnPlayerDisconnect(playerid, reason)
 {
     new
