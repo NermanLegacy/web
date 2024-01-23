@@ -18,7 +18,7 @@ It is always called first in gamemode.
 
 ## Examples
 
-```c
+```pawn
 public OnPlayerExitedMenu(playerid)
 {
     TogglePlayerControllable(playerid,1); // unfreeze the player when they exit a menu
