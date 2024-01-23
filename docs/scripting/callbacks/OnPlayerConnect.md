@@ -22,7 +22,7 @@ It is always called first in filterscripts.
 
 ## Examples
 
-```c
+```pawn
 public OnPlayerConnect(playerid)
 {
     new
