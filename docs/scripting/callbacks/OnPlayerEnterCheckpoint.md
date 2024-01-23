@@ -18,7 +18,7 @@ It is always called first in filterscripts.
 
 ## Examples
 
-```c
+```pawn
 //In this example, a checkpoint is created for the player when spawning,
 //which creates a vehicle and disables the checkpoint.
 public OnPlayerSpawn(playerid)
