@@ -53,7 +53,7 @@ The parameters to this function are a list of all keys currently being held down
 
 Let's presume that you want to detect when a player presses their FIRE button, the obvious code would be:
 
-```c
+```pawn
 if (newkeys == KEY_FIRE)
 ```
 
@@ -63,7 +63,7 @@ This code may even work in your testing, but it is wrong and your testing is ins
 
 So, if the variable can contain multiple keys at once, how do you check for just a single one? The answer is bit masking. Each key has its own bit in the variable (some keys have the same bit, but they are onfoot/incar keys, so can never be pressed at the same time anyway) and you need to check for just that single bit:
 
-```c
+```pawn
 if (newkeys & KEY_FIRE)
 ```
 
@@ -75,7 +75,7 @@ Now if you test this code it will work whether you are crouching or standing whe
 
 This is where "oldkeys" comes in. To check if a key has just been pressed you need to first check whether it is set in "newkeys" - meaning it's held down, and then check that it's NOT in "oldkeys" - meaning it's only just been held down. The following code does this:
 
-```c
+```pawn
 if ((newkeys & KEY_FIRE) && !(oldkeys & KEY_FIRE))
 ```
 
@@ -85,7 +85,7 @@ That will ONLY be true when the FIRE key is first pressed, not when it's held an
 
 Exactly the same principle as above, but reversed:
 
-```c
+```pawn
 if ((oldkeys & KEY_FIRE) && !(newkeys & KEY_FIRE))
 ```
 
@@ -93,19 +93,19 @@ if ((oldkeys & KEY_FIRE) && !(newkeys & KEY_FIRE))
 
 If you want to check for players HOLDING crouch and fire then the following code will work fine:
 
-```c
+```pawn
 if ((newkeys & KEY_FIRE) && (newkeys & KEY_CROUCH))
 ```
 
 However if you want to detect when they FIRST press fire and crouch the following code WILL NOT work. It will work if they manage to press the two keys at exactly the same time, but if they're fractionally out (far less than half a second) it won't:
 
-```c
+```pawn
 if ((newkeys & KEY_FIRE) && !(oldkeys & KEY_FIRE) && (newkeys & KEY_CROUCH) && !(oldkeys & KEY_CROUCH))
 ```
 
 Why not? Because OnPlayerKeyStateChange is called every time a single key changes. So they press "KEY_FIRE" - OnPlayerKeyStateChange is called with "KEY_FIRE" in "newkeys" and not in "oldkeys", then they press "KEY_CROUCH" - OnPlayerKeyStateChange is called with "KEY_CROUCH" and "KEY_FIRE" in "newkeys", but "KEY_FIRE" is now also in "oldkeys" as it's already been pressed, so "!(oldkeys & KEY_FIRE)" will fail. Fortunately the solution is very simple (in fact simpler than the original code):
 
-```c
+```pawn
 if ((newkeys & (KEY_FIRE | KEY_CROUCH)) == (KEY_FIRE | KEY_CROUCH) && (oldkeys & (KEY_FIRE | KEY_CROUCH)) != (KEY_FIRE | KEY_CROUCH))
 ```
 
@@ -117,7 +117,7 @@ This may look complicated, but it checks that both keys are set in "newkeys" and
 
 The define:
 
-```c
+```pawn
 // HOLDING(keys)
 #define HOLDING(%0) \
 	((newkeys & (%0)) == (%0))
@@ -125,13 +125,13 @@ The define:
 
 Holding one key:
 
-```c
+```pawn
 if (HOLDING( KEY_FIRE ))
 ```
 
 Holding multiple keys:
 
-```c
+```pawn
 if (HOLDING( KEY_FIRE | KEY_CROUCH ))
 ```
 
@@ -139,7 +139,7 @@ if (HOLDING( KEY_FIRE | KEY_CROUCH ))
 
 The define:
 
-```c
+```pawn
 // PRESSED(keys)
 #define PRESSED(%0) \
 	(((newkeys & (%0)) == (%0)) && ((oldkeys & (%0)) != (%0)))
@@ -147,13 +147,13 @@ The define:
 
 Pressed one key:
 
-```c
+```pawn
 if (PRESSED( KEY_FIRE ))
 ```
 
 Pressed multiple keys:
 
-```c
+```pawn
 if (PRESSED( KEY_FIRE | KEY_CROUCH ))
 ```
 
@@ -161,7 +161,7 @@ if (PRESSED( KEY_FIRE | KEY_CROUCH ))
 
 The define:
 
-```c
+```pawn
 // PRESSING(keyVariable, keys)
 #define PRESSING(%0,%1) \
 	(%0 & (%1))
@@ -169,13 +169,13 @@ The define:
 
 Pressing one key:
 
-```c
+```pawn
 if (PRESSING( newkeys, KEY_FIRE ))
 ```
 
 Pressing multiple keys:
 
-```c
+```pawn
 if (PRESSING( newkeys, KEY_FIRE | KEY_CROUCH ))
 ```
 
@@ -183,7 +183,7 @@ if (PRESSING( newkeys, KEY_FIRE | KEY_CROUCH ))
 
 The define:
 
-```c
+```pawn
 // RELEASED(keys)
 #define RELEASED(%0) \
 	(((newkeys & (%0)) != (%0)) && ((oldkeys & (%0)) == (%0)))
@@ -191,13 +191,13 @@ The define:
 
 Released one key:
 
-```c
+```pawn
 if (RELEASED( KEY_FIRE ))
 ```
 
 Released multiple keys:
 
-```c
+```pawn
 if (RELEASED( KEY_FIRE | KEY_CROUCH ))
 ```
 
@@ -205,7 +205,7 @@ if (RELEASED( KEY_FIRE | KEY_CROUCH ))
 
 ### Attach NOS when the player presses fire
 
-```c
+```pawn
 public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 {
 	if (PRESSED(KEY_FIRE))
@@ -221,7 +221,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 
 ### Super jump
 
-```c
+```pawn
 public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 {
 	if (PRESSED(KEY_JUMP))
@@ -239,7 +239,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 
 ### God mode while holding use
 
-```c
+```pawn
 new
 	Float:gPlayerHealth[MAX_PLAYERS];
 
