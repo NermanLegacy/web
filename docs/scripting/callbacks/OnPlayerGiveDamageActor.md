@@ -1,7 +1,7 @@
 ---
 title: OnPlayerGiveDamageActor
 description: This callback is called when a player gives damage to an actor.
-tags: ["player"]
+tags: ["player", "actor"]
 ---
 
 <VersionWarn name='callback' version='SA-MP 0.3.7' />
@@ -28,7 +28,7 @@ It is always called first in filterscripts so returning 1 there blocks other fil
 
 ## Examples
 
-```c
+```pawn
 public OnPlayerGiveDamageActor(playerid, damaged_actorid, Float: amount, weaponid, bodypart)
 {
     new string[128], attacker[MAX_PLAYER_NAME];
