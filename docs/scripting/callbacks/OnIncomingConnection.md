@@ -1,7 +1,7 @@
 ---
 title: OnIncomingConnection
 description: This callback is called when an IP address attempts a connection to the server.
-tags: []
+tags: ["player"]
 ---
 
 <VersionWarn name='callback' version='SA-MP 0.3z R2-2' />
